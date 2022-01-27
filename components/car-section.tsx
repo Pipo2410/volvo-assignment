@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import SearchBar from './searchbar';
 import Data from '../models/apiData';
-import Carousel from '../components/Carousel';
+import Carousel from '../components/carousel';
 
 import { Grid, Row, Col, View, Spinner } from 'vcc-ui';
 
@@ -29,7 +29,10 @@ const CarSection: React.FC = () => {
     if (bodyType === '') {
       setFilteredData(data);
     } else {
-      setFilteredData(data.filter((car) => car.bodyType.includes(bodyType)));
+      const searchedPhrase = bodyType.toLowerCase();
+      setFilteredData(
+        data.filter((car) => car.bodyType.includes(searchedPhrase))
+      );
     }
   };
 
