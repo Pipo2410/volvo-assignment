@@ -559,6 +559,11 @@
     "@typescript-eslint/types" "4.31.1"
     "eslint-visitor-keys" "^2.0.0"
 
+"@volvo-cars/favicons@^4.0.1":
+  "integrity" "sha512-/tPgefIOMVA3nsgcMzMLh+ecPCN52Bk9Ymzl3Qbnol3ayqnGaqWTUbwaoxQIweA5cJ2CqnqVnKJ+8puqoWWt3w=="
+  "resolved" "https://registry.npmjs.org/@volvo-cars/favicons/-/favicons-4.0.1.tgz"
+  "version" "4.0.1"
+
 "@volvo-cars/ui-design-tokens@^2.10.1":
   "integrity" "sha512-rb1RQMc1OpfCAC3qNQVuoV9pUbHwxWDD67xkYjARudRHqTJpAm3OG1uPlcKTculkcwpC4H8B97DCsD6o8ddUGw=="
   "resolved" "https://registry.npmjs.org/@volvo-cars/ui-design-tokens/-/ui-design-tokens-2.10.1.tgz"

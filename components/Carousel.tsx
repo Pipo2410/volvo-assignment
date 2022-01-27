@@ -43,13 +43,13 @@ const Carousel: React.FC<{ items: Data[] }> = (props) => {
             <img
               style={{ transform: 'rotate(-180deg)' }}
               height={30}
-              src="https://cdn-icons.flaticon.com/png/512/1549/premium/1549454.png?token=exp=1643228220~hmac=c552099d5c338694375e1e714709b015"
+              src="https://png.pngtree.com/element_origin_min_pic/16/09/02/1157c8f053982a3.jpg"
             ></img>
           </ButtonBack>
           <ButtonNext style={styles}>
             <img
               height={30}
-              src="https://cdn-icons.flaticon.com/png/512/1549/premium/1549454.png?token=exp=1643228220~hmac=c552099d5c338694375e1e714709b015"
+              src="https://png.pngtree.com/element_origin_min_pic/16/09/02/1157c8f053982a3.jpg"
             ></img>
           </ButtonNext>
         </div>

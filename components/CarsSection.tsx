@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import Data from '../models/apiData';
 import Carousel from './Carousel';
-import { View, Spinner } from 'vcc-ui';
+
+import { Grid, Row, Col, View, Spinner } from 'vcc-ui';
 
 const CarsSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,15 +40,43 @@ const CarsSection: React.FC = () => {
   };
 
   return (
-    <div className="content" style={divStyles}>
-      <SearchBar onFilterCars={filterCarsHandler} />
-      {!isLoading && <Carousel items={filteredData} />}
-      {isLoading && (
-        <View>
-          <Spinner size={48} />
-        </View>
-      )}
-    </div>
+    <Grid>
+      <Row align="center">
+        <Col>
+          <SearchBar onFilterCars={filterCarsHandler} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>{!isLoading && <Carousel items={filteredData} />}</Col>
+      </Row>
+      <Row>
+        <Col>
+          {isLoading && (
+            <View
+              extend={{
+                margin: 'auto',
+                marginTop: '25px',
+              }}
+            >
+              <Spinner size={48} />
+            </View>
+          )}
+        </Col>
+      </Row>
+    </Grid>
+    // <Flex extend={{ justifyContent: 'center' }}>
+    //   <Flex>
+    //     <Block>
+    //       <SearchBar onFilterCars={filterCarsHandler} />
+    //     </Block>
+    //     {!isLoading && <Carousel items={filteredData} />}
+    //     {isLoading && (
+    //       <View>
+    //         <Spinner size={48} />
+    //       </View>
+    //     )}
+    //   </Flex>
+    // </Flex>
   );
 };
 
