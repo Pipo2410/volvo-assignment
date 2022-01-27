@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import SearchBar from '../components/SearchBar';
+import SearchBar from './searchbar';
 import Data from '../models/apiData';
-import Carousel from './Carousel';
+import Carousel from '../components/Carousel';
 
 import { Grid, Row, Col, View, Spinner } from 'vcc-ui';
 
-const CarsSection: React.FC = () => {
+const CarSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<Data[]>([]);
   const [filteredData, setFilteredData] = useState<Data[]>([]);
@@ -31,12 +31,6 @@ const CarsSection: React.FC = () => {
     } else {
       setFilteredData(data.filter((car) => car.bodyType.includes(bodyType)));
     }
-  };
-
-  const divStyles = {
-    maxWidth: 1200,
-    margin: '0 auto',
-    marginTop: 150,
   };
 
   return (
@@ -64,20 +58,7 @@ const CarsSection: React.FC = () => {
         </Col>
       </Row>
     </Grid>
-    // <Flex extend={{ justifyContent: 'center' }}>
-    //   <Flex>
-    //     <Block>
-    //       <SearchBar onFilterCars={filterCarsHandler} />
-    //     </Block>
-    //     {!isLoading && <Carousel items={filteredData} />}
-    //     {isLoading && (
-    //       <View>
-    //         <Spinner size={48} />
-    //       </View>
-    //     )}
-    //   </Flex>
-    // </Flex>
   );
 };
 
-export default CarsSection;
+export default CarSection;

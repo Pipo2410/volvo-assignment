@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // import {ReactComponent sa ArrowLogo } from '../docs/chevron-circled.svg'
 import Data from '../models/apiData';
@@ -11,9 +11,10 @@ import {
   DotGroup,
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import { Spacer, Flex } from 'vcc-ui';
+import { useResizeObserver } from '@volvo-cars/react-layout-utils';
 
 import Car from './Car';
-// import Dots from './Dots';
 
 const Carousel: React.FC<{ items: Data[] }> = (props) => {
   const { items } = props;
@@ -22,19 +23,48 @@ const Carousel: React.FC<{ items: Data[] }> = (props) => {
     border: 'none',
   };
 
+  const { ref, width, height } = useResizeObserver<HTMLDivElement>();
+
+  console.log(ref);
+  console.log(typeof ref);
+  console.log(width);
+  console.log(height);
+
+  const [visibleItems, setVisibleItems] = useState(4);
+
+  // if (width !== undefined) {
+  //   if (width < 479) setVisibleItems(1);
+  //   if (width > 479) setVisibleItems(4);
+  // }
+
   return (
-    <div>
+    <div ref={ref}>
       <CarouselProvider
         naturalSlideWidth={100}
         naturalSlideHeight={100}
         totalSlides={items.length}
-        visibleSlides={4}
+        // visibleSlides={visibleItems}
+        visibleSlides={width > 479 ? 4 : 1}
         infinite={false}
       >
-        <Slider>
+        <Slider
+        // style={{ display: 'flex' }}
+        >
           {items.map((item, index) => (
-            <Slide key={item.id} index={index}>
-              <Car text={item} />
+            <Slide
+              // style={{ float: 'none' }}
+              key={item.id}
+              index={index}
+            >
+              {/* refactor */}
+              <Flex
+                extend={{
+                  flexDirection: 'row',
+                }}
+              >
+                <Car text={item} />
+                <Spacer />
+              </Flex>
             </Slide>
           ))}
         </Slider>
@@ -54,9 +84,6 @@ const Carousel: React.FC<{ items: Data[] }> = (props) => {
           </ButtonNext>
         </div>
         <DotGroup showAsSelectedForCurrentSlideOnly={true} />
-        {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Dots items={items} />
-        </div> */}
       </CarouselProvider>
     </div>
   );

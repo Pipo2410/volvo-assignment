@@ -302,6 +302,11 @@
     "@types/yargs" "^16.0.0"
     "chalk" "^4.0.0"
 
+"@juggle/resize-observer@^3.3.1":
+  "integrity" "sha512-zMM9Ds+SawiUkakS7y94Ymqx+S0ORzpG3frZirN3l+UlXUmSUR7hF4wxCVqW+ei94JzV5kt0uXBcoOEAuiydrw=="
+  "resolved" "https://registry.npmjs.org/@juggle/resize-observer/-/resize-observer-3.3.1.tgz"
+  "version" "3.3.1"
+
 "@napi-rs/triples@^1.0.3":
   "integrity" "sha512-jDJTpta+P4p1NZTFVLHJ/TLFVYVcOqv6l8xwOeBKNPMgY/zDYH/YH7SJbvrr/h1RcS9GzbPcLKGzpuK9cV56UA=="
   "resolved" "https://registry.npmjs.org/@napi-rs/triples/-/triples-1.0.3.tgz"
@@ -563,6 +568,20 @@
   "integrity" "sha512-/tPgefIOMVA3nsgcMzMLh+ecPCN52Bk9Ymzl3Qbnol3ayqnGaqWTUbwaoxQIweA5cJ2CqnqVnKJ+8puqoWWt3w=="
   "resolved" "https://registry.npmjs.org/@volvo-cars/favicons/-/favicons-4.0.1.tgz"
   "version" "4.0.1"
+
+"@volvo-cars/react-layout-utils@^0.3.0":
+  "integrity" "sha512-d8uvIKlhWEKUzWEOfWsVHL+YYlui57btTDiSUvhNhfymWFxXMj6mL1Mb04NToV2PPEMf5bZfV9rTnrJ08Z5dzA=="
+  "resolved" "https://registry.npmjs.org/@volvo-cars/react-layout-utils/-/react-layout-utils-0.3.0.tgz"
+  "version" "0.3.0"
+  dependencies:
+    "@volvo-cars/react-utils" "^0.2.0"
+    "lodash" "^4.17.21"
+    "use-resize-observer" "^8.0.0"
+
+"@volvo-cars/react-utils@^0.2.0":
+  "integrity" "sha512-BR7MQbCgTE+RMxbsTXRl+R84IHFy17N/lKHgclv6upvBBL2Msj3Nt/9LrSyKCkN4b7WcCozobwlA4oPZD2qMcQ=="
+  "resolved" "https://registry.npmjs.org/@volvo-cars/react-utils/-/react-utils-0.2.0.tgz"
+  "version" "0.2.0"
 
 "@volvo-cars/ui-design-tokens@^2.10.1":
   "integrity" "sha512-rb1RQMc1OpfCAC3qNQVuoV9pUbHwxWDD67xkYjARudRHqTJpAm3OG1uPlcKTculkcwpC4H8B97DCsD6o8ddUGw=="
@@ -2515,7 +2534,7 @@
   "resolved" "https://registry.npmjs.org/lodash.truncate/-/lodash.truncate-4.4.2.tgz"
   "version" "4.4.2"
 
-"lodash@^4.17.15":
+"lodash@^4.17.15", "lodash@^4.17.21":
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
   "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
@@ -3182,7 +3201,7 @@
   dependencies:
     "object-assign" "^4.1.0"
 
-"react-dom@*", "react-dom@^17.0.0", "react-dom@^17.0.2", "react-dom@15.x || 16.x || 17.x":
+"react-dom@*", "react-dom@^17.0.0", "react-dom@^17.0.2", "react-dom@>=16.8.0", "react-dom@15.x || 16.x || 17.x":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -3215,7 +3234,7 @@
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.8.3.tgz"
   "version" "0.8.3"
 
-"react@*", "react@^16.11.0 || ^17.0.0 || ^18.0.0", "react@^16.3.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0", "react@^17.0.0", "react@^17.0.2", "react@>= 16.3.0", "react@>= 16.8.0 || 17.x.x || 18.x.x", "react@15.x || 16.x || 17.x", "react@17.0.2":
+"react@*", "react@^16.11.0 || ^17.0.0 || ^18.0.0", "react@^16.3.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0", "react@^17.0.0", "react@^17.0.2", "react@>= 16.3.0", "react@>= 16.8.0 || 17.x.x || 18.x.x", "react@>=16.8.0", "react@15.x || 16.x || 17.x", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -3863,6 +3882,13 @@
   dependencies:
     "punycode" "1.3.2"
     "querystring" "0.2.0"
+
+"use-resize-observer@^8.0.0":
+  "integrity" "sha512-n0iKSeiQpJCyaFh5JA0qsVLBIovsF4EIIR1G6XiBwKJN66ZrD4Oj62bjcuTAATPKiSp6an/2UZZxCf/67fk3sQ=="
+  "resolved" "https://registry.npmjs.org/use-resize-observer/-/use-resize-observer-8.0.0.tgz"
+  "version" "8.0.0"
+  dependencies:
+    "@juggle/resize-observer" "^3.3.1"
 
 "use-subscription@1.5.1":
   "integrity" "sha512-Xv2a1P/yReAjAbhylMfFplFKj9GssgTwN7RlcTxBujFQcloStWNDQdc4g4NRWH9xS4i/FDk04vQBptAXoF3VcA=="
