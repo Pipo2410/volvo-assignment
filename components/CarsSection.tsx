@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import Data from '../models/apiData';
 import Carousel from './Carousel';
+import { View, Spinner } from 'vcc-ui';
 
 const CarsSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -41,7 +42,11 @@ const CarsSection: React.FC = () => {
     <div className="content" style={divStyles}>
       <SearchBar onFilterCars={filterCarsHandler} />
       {!isLoading && <Carousel items={filteredData} />}
-      {isLoading && <p>Loading</p>}
+      {isLoading && (
+        <View>
+          <Spinner size={48} />
+        </View>
+      )}
     </div>
   );
 };

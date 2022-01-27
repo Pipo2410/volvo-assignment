@@ -1,14 +1,11 @@
-import fs from 'fs';
-import path from 'path';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { getAllData } from '../../helpers/api-util';
 
 const handler = (
   req: NextApiRequest,
   res: NextApiResponse<{ status: string; data: {} }>
 ) => {
-  const filePath = path.join(process.cwd(), 'public', 'api', 'cars.json');
-  const jsonData = fs.readFileSync(filePath);
-  const data = JSON.parse(jsonData.toString());
+  const data = getAllData();
 
   if (req.method === 'GET') {
     res.status(200).json({
