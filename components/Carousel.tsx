@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // import {ReactComponent sa ArrowLogo } from '../docs/chevron-circled.svg'
 import Data from '../models/apiData';
@@ -22,15 +22,17 @@ const Carousel: React.FC<{ items: Data[] }> = (props) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(window.innerWidth > 479);
   const { ref, width, height } = useResizeObserver<HTMLDivElement>();
 
-  console.log(ref);
+  // console.log(ref);
   // console.log(typeof ref);
   console.log(width);
   // console.log(height);
 
-  // if (width !== undefined) {
-  //   if (width < 479) setVisibleItems(1);
-  //   if (width > 479) setVisibleItems(4);
-  // }
+  useEffect(() => {
+    if (width !== undefined) {
+      if (width < 479) setVisibleItems(1);
+      if (width > 479) setVisibleItems(4);
+    }
+  }, [width]);
 
   return (
     <View ref={ref} marginTop={5}>
@@ -38,18 +40,14 @@ const Carousel: React.FC<{ items: Data[] }> = (props) => {
         naturalSlideWidth={100}
         naturalSlideHeight={100}
         totalSlides={items.length}
-        // visibleSlides={visibleItems}
+        visibleSlides={visibleItems}
         // visibleSlides={width > 479 ? 4 : 1}
-        visibleSlides={4}
+        // visibleSlides={4}
         infinite={false}
       >
         <Slider style={{ height: '400px' }}>
           {items.map((item, index) => (
-            <Slide
-              // style={{ float: 'none' }}
-              key={item.id}
-              index={index}
-            >
+            <Slide key={item.id} index={index}>
               {/* refactor */}
               <Flex
                 extend={{
