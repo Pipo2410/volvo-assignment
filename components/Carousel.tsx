@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 // import {ReactComponent sa ArrowLogo } from '../docs/chevron-circled.svg'
 import Data from '../models/apiData';
@@ -15,6 +16,7 @@ import { Spacer, Flex, View, Block } from 'vcc-ui';
 import { useResizeObserver } from '@volvo-cars/react-layout-utils';
 
 import Car from './car';
+import ArrowIcon from '../docs/chevron-circled.svg';
 
 const Carousel: React.FC<{ items: Data[] }> = (props) => {
   const { items } = props;
@@ -24,13 +26,19 @@ const Carousel: React.FC<{ items: Data[] }> = (props) => {
 
   // console.log(ref);
   // console.log(typeof ref);
-  console.log(width);
+  // console.log(width);
   // console.log(height);
 
   useEffect(() => {
     if (width !== undefined) {
-      if (width < 479) setVisibleItems(1);
-      if (width > 479) setVisibleItems(4);
+      if (width < 479) {
+        setVisibleItems(1);
+        setIsDesktop(false);
+      }
+      if (width > 479) {
+        setVisibleItems(4);
+        setIsDesktop(true);
+      }
     }
   }, [width]);
 
@@ -41,8 +49,6 @@ const Carousel: React.FC<{ items: Data[] }> = (props) => {
         naturalSlideHeight={100}
         totalSlides={items.length}
         visibleSlides={visibleItems}
-        // visibleSlides={width > 479 ? 4 : 1}
-        // visibleSlides={4}
         infinite={false}
       >
         <Slider style={{ height: '400px' }}>
@@ -67,21 +73,28 @@ const Carousel: React.FC<{ items: Data[] }> = (props) => {
               justifyContent: 'end',
             }}
           >
-            {/* <Block> */}
-            <ButtonBack>
-              <img
-                style={{ transform: 'rotate(-180deg)' }}
-                height={30}
-                src="https://png.pngtree.com/element_origin_min_pic/16/09/02/1157c8f053982a3.jpg"
-              ></img>
+            <ButtonBack
+              style={{
+                background: 'none',
+                border: 'none',
+                width: '40px',
+                height: '40px',
+                transform: 'translate(-180deg)',
+              }}
+            >
+              <ArrowIcon style={{ transform: 'translate(-180deg)' }} />
             </ButtonBack>
-            <ButtonNext>
-              <img
-                height={30}
-                src="https://png.pngtree.com/element_origin_min_pic/16/09/02/1157c8f053982a3.jpg"
-              ></img>
+            <ButtonNext
+              style={{
+                background: 'none',
+                border: 'none',
+                width: '40px',
+                height: '40px',
+                transform: '',
+              }}
+            >
+              <ArrowIcon />
             </ButtonNext>
-            {/* </Block> */}
           </Flex>
         )}
         {!isDesktop && <DotGroup showAsSelectedForCurrentSlideOnly={true} />}
