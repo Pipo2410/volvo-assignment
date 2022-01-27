@@ -1,0 +1,13 @@
+body {
+  color: black;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.car {
+  max-height: 300px;
+  height: 100%;
+}
