@@ -2,12 +2,6 @@ body {
   color: black;
 }
 
-.content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.car {
-  max-height: 300px;
-  height: 100%;
+.carousel__dot--selected {
+  background-color: rgba(20, 20, 20, 0.8);
 }

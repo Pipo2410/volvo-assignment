@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleProvider, ThemePicker } from 'vcc-ui';
 
-import CarSection from '../components/car-section';
-import Header from '../components/layout/Header';
+import CarSection from '../components/layout/car-section';
+import Header from '../components/layout/header';
 
 function HomePage() {
   return (
