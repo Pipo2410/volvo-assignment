@@ -19,9 +19,6 @@ const CarSection: React.FC = () => {
         setData(res.data);
         setFilteredData(res.data);
         setIsLoading(false);
-      })
-      .catch((error) => {
-        // handle this
       });
   }, []);
 

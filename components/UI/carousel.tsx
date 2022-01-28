@@ -33,8 +33,6 @@ const Carousel: React.FC<{ items: Data[] }> = (props) => {
     }
   }, [width]);
 
-  console.log(items);
-
   return (
     <View ref={ref} marginTop={5}>
       {!items.length && (
